@@ -16,10 +16,10 @@ export default function Home() {
 
         {/* Hero Section */}
         <main className="relative z-10">
-          <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-24 lg:px-8 lg:py-40">
             <div className="mx-auto max-w-4xl text-center">
               {/* Main Heading */}
-              <h1 className="mb-8 text-5xl font-bold uppercase tracking-tight text-white sm:text-6xl lg:text-7xl">
+              <h1 className="mb-6 text-[1.75rem] font-bold uppercase leading-tight tracking-tight text-white min-[375px]:text-3xl sm:mb-8 sm:text-5xl sm:leading-tight lg:text-7xl">
                 Turn{" "}
                 <PointerHighlight>
                   <span className="bg-gradient-to-r from-emerald-400 via-purple-500 to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
@@ -41,8 +41,8 @@ export default function Home() {
               </h1>
 
               {/* Description */}
-              <p className="mx-auto mb-12 max-w-2xl text-lg leading-8 text-emerald-100/80 sm:text-xl">
-                <span className="text-emerald-400 font-cartridge text-3xl">
+              <p className="mx-auto mb-12 max-w-2xl text-sm leading-6 text-emerald-100/80 min-[375px]:text-base min-[375px]:leading-7 sm:text-lg sm:leading-8 lg:text-xl">
+                <span className="text-emerald-400 font-cartridge text-lg min-[375px]:text-xl sm:text-2xl lg:text-3xl">
                   Seance
                 </span>{" "}
                 is an agentic coding tool that turns your collaborative software
@@ -59,17 +59,17 @@ export default function Home() {
                 >
                   <Button
                     size="xl"
-                    className="group border border-emerald-400 bg-emerald-500 uppercase tracking-wider text-black shadow-[0_0_20px_rgba(16,185,129,0.6)] transition-all hover:bg-emerald-400 hover:shadow-[0_0_30px_rgba(16,185,129,0.8)]"
+                    className="group border border-emerald-400 bg-emerald-500 text-xs uppercase tracking-wider text-black shadow-[0_0_20px_rgba(16,185,129,0.6)] transition-all hover:bg-emerald-400 hover:shadow-[0_0_30px_rgba(16,185,129,0.8)] min-[375px]:text-sm sm:text-base"
                   >
-                    <Code2 className="h-5 w-5" />
+                    <Code2 className="h-4 w-4 min-[375px]:h-5 min-[375px]:w-5" />
                     Join Waitlist Now
-                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 min-[375px]:h-5 min-[375px]:w-5" />
                   </Button>
                 </a>
               </div>
 
               {/* Feature Highlight */}
-              <div className="mt-16 flex items-center justify-center gap-2 text-sm uppercase tracking-wider text-emerald-400">
+              <div className="mt-12 flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-emerald-400 sm:mt-16 sm:text-sm">
                 <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
                 <span className="drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]">
                   Powered by advanced AI agents
@@ -79,54 +79,6 @@ export default function Home() {
           </div>
 
           {/* Visual Element - Code Preview */}
-          <div className="relative mx-auto max-w-5xl px-6 pb-24 lg:px-8">
-            <div className="overflow-hidden rounded-lg border-2 border-emerald-500/50 bg-black/90 p-8 shadow-[0_0_30px_rgba(16,185,129,0.3)] backdrop-blur-sm">
-              <div className="mb-4 flex items-center gap-2">
-                <div className="h-3 w-3 rounded-full bg-red-500 shadow-[0_0_5px_rgba(239,68,68,0.8)]"></div>
-                <div className="h-3 w-3 rounded-full bg-yellow-500 shadow-[0_0_5px_rgba(234,179,8,0.8)]"></div>
-                <div className="h-3 w-3 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.8)]"></div>
-                <span className="ml-4 font-mono text-xs uppercase text-emerald-400">
-                  terminal://seance
-                </span>
-              </div>
-              <div className="font-mono text-sm text-emerald-100/90">
-                <div className="mb-2">
-                  <span className="text-purple-400">const</span>{" "}
-                  <span className="text-emerald-400">session</span>{" "}
-                  <span className="text-emerald-500/50">=</span>{" "}
-                  <span className="text-purple-300">seance</span>
-                  <span className="text-emerald-500/50">.</span>
-                  <span className="text-emerald-400">create</span>
-                  <span className="text-emerald-500/50">({"{"}</span>
-                </div>
-                <div className="mb-2 pl-4">
-                  <span className="text-emerald-300/60">design:</span>{" "}
-                  <span className="text-emerald-400">
-                    &quot;Build a user authentication system&quot;
-                  </span>
-                  <span className="text-emerald-500/50">,</span>
-                </div>
-                <div className="mb-2 pl-4">
-                  <span className="text-emerald-300/60">framework:</span>{" "}
-                  <span className="text-emerald-400">&quot;Next.js&quot;</span>
-                  <span className="text-emerald-500/50">,</span>
-                </div>
-                <div className="pl-4">
-                  <span className="text-emerald-300/60">output:</span>{" "}
-                  <span className="text-emerald-400">
-                    &quot;production-ready&quot;
-                  </span>
-                </div>
-                <div>
-                  <span className="text-emerald-500/50">{"}"});</span>
-                </div>
-                <div className="mt-4 flex items-center gap-2">
-                  <span className="text-purple-400">&gt;&gt;</span>
-                  <span className="animate-pulse text-emerald-400">█</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </main>
       </div>
     </AuroraBackground>
