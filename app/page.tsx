@@ -1,65 +1,125 @@
-import Image from "next/image";
+"use client"
+
+import { Navigation } from "@/components/navigation"
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation"
+import { Button } from "@/components/ui/button"
+import { PointerHighlight } from "@/components/ui/pointer-highlight"
+import { TypewriterEffect } from "@/components/ui/typewriter-effect"
+import { ArrowRight, Code2 } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/landing-seance/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <BackgroundGradientAnimation
+      gradientBackgroundStart="rgb(15, 23, 42)"
+      gradientBackgroundEnd="rgb(30, 41, 59)"
+      firstColor="59, 130, 246"
+      secondColor="147, 51, 234"
+      thirdColor="236, 72, 153"
+      fourthColor="6, 182, 212"
+      fifthColor="139, 92, 246"
+      pointerColor="59, 130, 246"
+      size="80%"
+      blendingValue="hard-light"
+      containerClassName="!fixed"
+      interactive={true}
+    >
+      <div className="relative z-10 min-h-screen">
+        {/* Navigation */}
+        <Navigation />
+
+        {/* Hero Section */}
+        <main className="relative z-10">
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+          <div className="mx-auto max-w-4xl text-center">
+            {/* Main Heading */}
+            <h1 className="mb-8 text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              Turn{" "}
+              <PointerHighlight>
+                <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 bg-clip-text text-transparent">
+                  collaborative design sessions
+                </span>
+              </PointerHighlight>{" "}
+              into{" "}
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+                <TypewriterEffect
+                  words={["written code", "production apps", "real software", "working systems"]}
+                  className="inline-block"
+                />
+              </span>
+            </h1>
+
+            {/* Description */}
+            <p className="mx-auto mb-12 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+              Seance is an agentic coding tool that turns your collaborative software design sessions into written code.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button
+                size="xl"
+                className="group bg-cyan-500 text-slate-950 hover:bg-cyan-400"
+              >
+                <Code2 className="h-5 w-5" />
+                Get Started
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Button
+                size="xl"
+                variant="outline"
+                className="border-slate-700 bg-slate-900/50 text-white hover:bg-slate-800/50"
+              >
+                Explore Features
+              </Button>
+            </div>
+
+            {/* Feature Highlight */}
+            <div className="mt-16 flex items-center justify-center gap-2 text-sm text-slate-400">
+              <div className="h-2 w-2 rounded-full bg-green-500"></div>
+              <span>Powered by advanced AI agents</span>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/landing-seance/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Visual Element - Code Preview */}
+        <div className="relative mx-auto max-w-5xl px-6 pb-24 lg:px-8">
+          <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur-sm">
+            <div className="mb-4 flex items-center gap-2">
+              <div className="h-3 w-3 rounded-full bg-red-500"></div>
+              <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
+              <div className="h-3 w-3 rounded-full bg-green-500"></div>
+            </div>
+            <div className="font-mono text-sm text-slate-300">
+              <div className="mb-2">
+                <span className="text-purple-400">const</span>{" "}
+                <span className="text-blue-400">session</span>{" "}
+                <span className="text-slate-500">=</span>{" "}
+                <span className="text-cyan-400">seance</span>
+                <span className="text-slate-500">.</span>
+                <span className="text-yellow-400">create</span>
+                <span className="text-slate-500">({"{"}</span>
+              </div>
+              <div className="mb-2 pl-4">
+                <span className="text-slate-400">design:</span>{" "}
+                <span className="text-green-400">&quot;Build a user authentication system&quot;</span>
+                <span className="text-slate-500">,</span>
+              </div>
+              <div className="mb-2 pl-4">
+                <span className="text-slate-400">framework:</span>{" "}
+                <span className="text-green-400">&quot;Next.js&quot;</span>
+                <span className="text-slate-500">,</span>
+              </div>
+              <div className="pl-4">
+                <span className="text-slate-400">output:</span>{" "}
+                <span className="text-green-400">&quot;production-ready&quot;</span>
+              </div>
+              <div>
+                <span className="text-slate-500">{"}"});</span>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
-    </div>
+      </div>
+    </BackgroundGradientAnimation>
   );
 }
