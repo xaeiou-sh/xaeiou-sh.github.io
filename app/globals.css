@@ -1,21 +1,29 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Cartridge';
+  src: url('/fonts/cartridge.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #0ea5e9;
-  --primary-foreground: #ffffff;
-  --secondary: #1e293b;
-  --secondary-foreground: #f8fafc;
+  --background: #0a0a0a;
+  --foreground: #10b981;
+  --primary: #10b981;
+  --primary-foreground: #000000;
+  --secondary: #a855f7;
+  --secondary-foreground: #000000;
   --accent: #22d3ee;
-  --accent-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --accent-foreground: #000000;
+  --muted: #1a1a1a;
+  --muted-foreground: #10b981;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #0ea5e9;
+  --border: #10b981;
+  --input: #1a1a1a;
+  --ring: #10b981;
 }
 
 @theme inline {
@@ -36,30 +44,40 @@
   --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --animate-first: moveVertical 30s ease infinite;
-  --animate-second: moveInCircle 20s reverse infinite;
-  --animate-third: moveInCircle 40s linear infinite;
-  --animate-fourth: moveHorizontal 40s ease infinite;
-  --animate-fifth: moveInCircle 20s ease infinite;
+  --font-cartridge: "Cartridge", monospace;
+  --animate-aurora: aurora 60s linear infinite;
+
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
-    --primary: #06b6d4;
-    --primary-foreground: #0f172a;
-    --secondary: #1e293b;
-    --secondary-foreground: #f8fafc;
+    --foreground: #10b981;
+    --primary: #10b981;
+    --primary-foreground: #000000;
+    --secondary: #a855f7;
+    --secondary-foreground: #000000;
     --accent: #22d3ee;
-    --accent-foreground: #0f172a;
-    --muted: #1e293b;
-    --muted-foreground: #94a3b8;
+    --accent-foreground: #000000;
+    --muted: #1a1a1a;
+    --muted-foreground: #10b981;
     --destructive: #ef4444;
     --destructive-foreground: #ffffff;
-    --border: #1e293b;
-    --input: #1e293b;
-    --ring: #06b6d4;
+    --border: #10b981;
+    --input: #1a1a1a;
+    --ring: #10b981;
   }
 }
 
@@ -67,40 +85,4 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-@keyframes moveHorizontal {
-  0% {
-    transform: translateX(-50%) translateY(-10%);
-  }
-  50% {
-    transform: translateX(50%) translateY(10%);
-  }
-  100% {
-    transform: translateX(-50%) translateY(-10%);
-  }
-}
-
-@keyframes moveInCircle {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes moveVertical {
-  0% {
-    transform: translateY(-50%);
-  }
-  50% {
-    transform: translateY(50%);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
 }
