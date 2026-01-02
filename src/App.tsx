@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/navigation";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Button } from "@/components/ui/button";
+import { Carousel } from "@/components/ui/carousel";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { ArrowRight, Code2 } from "lucide-react";
@@ -76,7 +77,35 @@ export default function App() {
             </div>
           </div>
 
-          {/* Visual Element - Code Preview */}
+          {/* Screenshots Section */}
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl mb-4">
+                See It In{" "}
+                <span className="bg-gradient-to-r from-emerald-400 via-purple-500 to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
+                  Action
+                </span>
+              </h2>
+              <p className="mx-auto max-w-2xl text-sm text-emerald-100/80 sm:text-base lg:text-lg">
+                Experience the power of collaborative software design
+              </p>
+            </div>
+
+            <Carousel
+              slides={[
+                {
+                  src: "/screenshots/whiteboards.jpeg",
+                  title: "Whiteboards",
+                  button: "Learn More",
+                },
+                {
+                  src: "/screenshots/multiple-windows.jpeg",
+                  title: "Multiple Windows",
+                  button: "Learn More",
+                },
+              ]}
+            />
+          </div>
         </main>
       </div>
     </AuroraBackground>
