@@ -1,5 +1,3 @@
-"use client";
-
 import { Navigation } from "@/components/navigation";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Button } from "@/components/ui/button";
@@ -7,7 +5,7 @@ import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { ArrowRight, Code2 } from "lucide-react";
 
-export default function Home() {
+export default function App() {
   return (
     <AuroraBackground>
       <div className="relative z-10 min-h-screen">
