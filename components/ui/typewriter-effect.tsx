@@ -46,12 +46,12 @@ export const TypewriterEffect = ({
   }, [currentText, isDeleting, currentWordIndex, words])
 
   return (
-    <span className={`inline-flex items-center ${className}`}>
+    <span className={`relative inline-block ${className}`}>
       <span>{currentText}</span>
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-        className={`ml-1 inline-block h-[1em] w-[2px] bg-current ${cursorClassName}`}
+        className={`absolute top-0 -right-1 inline-block h-[1em] w-[2px] bg-current ${cursorClassName}`}
       />
     </span>
   )

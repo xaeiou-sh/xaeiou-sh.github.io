@@ -1,113 +1,125 @@
 import { Navigation } from "@/components/navigation";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Button } from "@/components/ui/button";
-import { Carousel } from "@/components/ui/carousel";
-import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { ArrowRight, Code2 } from "lucide-react";
 
 export default function App() {
   return (
-    <AuroraBackground>
-      <div className="relative z-10 min-h-screen">
-        {/* Navigation */}
-        <Navigation />
+    <div className="min-h-screen bg-zinc-950">
+      {/* Navigation */}
+      <Navigation />
 
-        {/* Hero Section */}
-        <main className="relative z-10">
-          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-24 lg:px-8 lg:py-40">
-            <div className="mx-auto max-w-4xl text-center">
-              {/* Main Heading */}
-              <h1 className="mb-6 text-[1.75rem] font-bold uppercase leading-tight tracking-tight text-white min-[375px]:text-3xl sm:mb-8 sm:text-5xl sm:leading-tight lg:text-7xl">
-                Turn{" "}
-                <PointerHighlight>
-                  <span className="bg-gradient-to-r from-emerald-400 via-purple-500 to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
-                    collaborative design sessions
-                  </span>
-                </PointerHighlight>{" "}
-                into{" "}
-                <span className="bg-gradient-to-r from-purple-400 via-emerald-500 to-purple-600 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">
-                  <TypewriterEffect
-                    words={[
-                      "written code",
-                      "production apps",
-                      "real software",
-                      "working systems",
-                    ]}
-                    className="inline-block"
-                  />
-                </span>
-              </h1>
+      {/* Hero Section */}
+      <main>
+        <div className="mx-auto max-w-3xl px-4 py-24 sm:px-6 sm:py-32 lg:py-40">
+          <div className="text-center">
+            {/* Main Heading */}
+            <h1 className="mb-8 min-h-[4.5rem] text-3xl font-bold tracking-tight text-zinc-100 sm:min-h-[3.5rem] sm:text-4xl lg:min-h-[4rem] lg:text-5xl">
+              Turn{" "}
+              <span className="text-emerald-400">
+                collaborative design sessions
+              </span>{" "}
+              into{" "}
+              <span className="text-emerald-400">
+                <TypewriterEffect
+                  words={[
+                    "written code",
+                    "production apps",
+                    "real software",
+                    "working systems",
+                  ]}
+                  className="inline-block"
+                />
+              </span>
+            </h1>
 
-              {/* Description */}
-              <p className="mx-auto mb-12 max-w-2xl text-sm leading-6 text-emerald-100/80 min-[375px]:text-base min-[375px]:leading-7 sm:text-lg sm:leading-8 lg:text-xl">
-                <span className="text-emerald-400 font-cartridge text-lg min-[375px]:text-xl sm:text-2xl lg:text-3xl">
-                  Seance
-                </span>{" "}
-                is an agentic coding tool that turns your collaborative software
-                design sessions into{" "}
-                <span className="text-purple-400">written code</span>.
-              </p>
+            {/* Description */}
+            <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
+              <span className="font-cartridge text-2xl text-emerald-400 sm:text-3xl">
+                Seance
+              </span>{" "}
+              is an agentic coding tool that turns your collaborative software
+              design sessions into{" "}
+              <span className="text-zinc-200">written code</span>.
+            </p>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a
-                  href="https://forms.gle/6Br64PFmTZSD4qjd9"
-                  target="_blank"
-                  rel="noopener noreferrer"
+            {/* CTA Button */}
+            <div className="flex justify-center">
+              <a
+                href="https://forms.gle/6Br64PFmTZSD4qjd9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  size="xl"
+                  className="group bg-emerald-500 text-zinc-950 transition-colors duration-300 hover:bg-emerald-400"
                 >
-                  <Button
-                    size="xl"
-                    className="group border border-emerald-400 bg-emerald-500 text-xs uppercase tracking-wider text-black shadow-[0_0_20px_rgba(16,185,129,0.6)] transition-all hover:bg-emerald-400 hover:shadow-[0_0_30px_rgba(16,185,129,0.8)] min-[375px]:text-sm sm:text-base"
-                  >
-                    <Code2 className="h-4 w-4 min-[375px]:h-5 min-[375px]:w-5" />
-                    Join Waitlist Now
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 min-[375px]:h-5 min-[375px]:w-5" />
-                  </Button>
-                </a>
-              </div>
+                  <Code2 className="h-5 w-5" />
+                  Join Waitlist Now
+                  <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+              </a>
+            </div>
 
-              {/* Feature Highlight */}
-              <div className="mt-12 flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-emerald-400 sm:mt-16 sm:text-sm">
-                <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>
-                <span className="drop-shadow-[0_0_8px_rgba(16,185,129,0.4)]">
-                  Powered by advanced AI agents
-                </span>
+            {/* Feature Highlight */}
+            <div className="mt-16 flex items-center justify-center gap-2 text-sm text-zinc-500">
+              <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-500"></div>
+              <span>Powered by advanced AI agents</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Screenshots Section */}
+        <div className="mx-auto max-w-4xl px-4 pb-24 sm:px-6">
+          <h2 className="mb-12 text-center text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl">
+            See It In <span className="text-emerald-400">Action</span>
+          </h2>
+
+          <div className="space-y-24">
+            {/* Whiteboards - Image left, copy right */}
+            <div className="flex flex-col items-center gap-8 md:flex-row">
+              <div className="flex-1">
+                <div className="overflow-hidden rounded-lg border-4 border-emerald-500">
+                  <img
+                    src="/screenshots/whiteboards.jpeg"
+                    alt="Whiteboards"
+                    className="w-full"
+                  />
+                </div>
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="mb-4 text-xl font-bold text-zinc-100 sm:text-2xl">
+                  Design Together, Build Faster
+                </h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  Sketch out your ideas on collaborative whiteboards. Seance watches your design sessions in real-time, understanding your intent and translating rough concepts into structured code architecture.
+                </p>
+              </div>
+            </div>
+
+            {/* Multiple Windows - Copy left, image right */}
+            <div className="flex flex-col-reverse items-center gap-8 md:flex-row">
+              <div className="flex-1 text-center md:text-right">
+                <h3 className="mb-4 text-xl font-bold text-zinc-100 sm:text-2xl">
+                  Context Across Every Window
+                </h3>
+                <p className="text-zinc-400 leading-relaxed">
+                  Work naturally across multiple windows—docs, diagrams, references, and code. Seance synthesizes context from everything on your screen to generate code that actually fits your project.
+                </p>
+              </div>
+              <div className="flex-1">
+                <div className="overflow-hidden rounded-lg border-4 border-emerald-500">
+                  <img
+                    src="/screenshots/multiple-windows.jpeg"
+                    alt="Multiple Windows"
+                    className="w-full"
+                  />
+                </div>
               </div>
             </div>
           </div>
-
-          {/* Screenshots Section */}
-          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold uppercase tracking-tight text-white sm:text-4xl lg:text-5xl mb-4">
-                See It In{" "}
-                <span className="bg-gradient-to-r from-emerald-400 via-purple-500 to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
-                  Action
-                </span>
-              </h2>
-              <p className="mx-auto max-w-2xl text-sm text-emerald-100/80 sm:text-base lg:text-lg">
-                Experience the power of collaborative software design
-              </p>
-            </div>
-
-            <Carousel
-              slides={[
-                {
-                  src: "/screenshots/whiteboards.jpeg",
-                  title: "Whiteboards",
-                  button: "Learn More",
-                },
-                {
-                  src: "/screenshots/multiple-windows.jpeg",
-                  title: "Multiple Windows",
-                  button: "Learn More",
-                },
-              ]}
-            />
-          </div>
-        </main>
-      </div>
-    </AuroraBackground>
+        </div>
+      </main>
+    </div>
   );
 }
