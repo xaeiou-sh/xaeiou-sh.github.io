@@ -3,20 +3,21 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-500 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neon disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "bg-emerald-500 text-zinc-950 hover:bg-emerald-400",
+          "bg-neon text-void hover:glow-neon",
         destructive:
-          "bg-red-500 text-zinc-100 hover:bg-red-400",
+          "bg-flame text-void hover:glow-flame",
         outline:
-          "border border-zinc-700 bg-transparent text-zinc-300 hover:bg-zinc-800 hover:text-zinc-100",
+          "border border-border bg-transparent text-mist hover:bg-secondary hover:text-pure hover:border-neon",
         secondary:
-          "bg-zinc-800 text-zinc-300 hover:bg-zinc-700 hover:text-zinc-100",
-        ghost: "text-zinc-400 hover:bg-zinc-800 hover:text-emerald-400",
-        link: "text-emerald-400 underline-offset-4 hover:underline",
+          "bg-secondary text-mist hover:bg-muted hover:text-pure",
+        ghost: "text-mist hover:bg-secondary hover:text-neon",
+        link: "text-neon underline-offset-4 hover:underline hover:text-glow-neon",
+        phantom: "bg-phantom text-pure hover:glow-phantom",
       },
       size: {
         default: "h-9 px-4 py-2",

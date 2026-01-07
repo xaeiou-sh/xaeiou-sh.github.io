@@ -2,14 +2,14 @@ import { Button } from "./ui/button";
 
 export const Navigation = () => {
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 w-full border-b border-border bg-void/60 backdrop-blur-md">
       <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 sm:px-6">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2">
-          <div className="font-cartridge text-2xl text-emerald-400 sm:text-3xl">
+          <div className="font-cartridge text-2xl text-neon text-glow-neon sm:text-3xl">
             Seance
           </div>
-          <div className="h-2 w-2 animate-pulse rounded-full bg-emerald-500"></div>
+          <div className="h-2 w-2 animate-pulse-neon rounded-full bg-neon"></div>
         </a>
 
         {/* CTA Buttons */}
@@ -22,7 +22,7 @@ export const Navigation = () => {
           >
             <Button
               variant="ghost"
-              className="text-zinc-400 transition-colors duration-300 hover:bg-zinc-800 hover:text-emerald-400"
+              className="text-mist transition-colors duration-300 hover:bg-secondary hover:text-neon"
             >
               Sign In
             </Button>
@@ -32,7 +32,7 @@ export const Navigation = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-emerald-500 text-zinc-950 transition-colors duration-300 hover:bg-emerald-400">
+            <Button className="bg-neon text-void glow-neon transition-all duration-300 hover:glow-neon-intense">
               Get Started
             </Button>
           </a>
