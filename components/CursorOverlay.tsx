@@ -221,7 +221,7 @@ export function CursorOverlay() {
 
               return {
                 ...presence,
-                cursor: { ...presence.cursor, x: newX, y: newY },
+                cursor: { x: newX, y: newY, type: 'default' as const, rotation: 0 },
                 chatMessage,
                 lastActivityTimestamp: now,
               }
