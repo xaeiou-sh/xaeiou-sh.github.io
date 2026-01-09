@@ -27,7 +27,7 @@ const generateOrbs = (count: number): Orb[] => {
 
 const colorMap = {
   neon: "47, 255, 0",
-  flame: "255, 111, 0",
+  flame: "47, 255, 0",
 };
 
 export const HeroBackground = () => {
@@ -65,7 +65,7 @@ export const HeroBackground = () => {
       const verticalLines = 40;
       const baseSpacing = width / verticalLines;
 
-      ctx.strokeStyle = `rgba(255, 111, 0, 0.15)`;
+      ctx.strokeStyle = `rgba(47, 255, 0, 0.15)`;
       ctx.lineWidth = 1;
 
       for (let i = -verticalLines; i <= verticalLines * 2; i++) {
@@ -93,7 +93,7 @@ export const HeroBackground = () => {
         const distFromPulse = Math.abs(t - pulsePos);
         const pulseIntensity = Math.max(0, 1 - distFromPulse * 2.5);
 
-        ctx.strokeStyle = `rgba(255, 111, 0, ${alpha + pulseIntensity * 0.12})`;
+        ctx.strokeStyle = `rgba(47, 255, 0, ${alpha + pulseIntensity * 0.12})`;
         ctx.lineWidth = 1 + pulseIntensity * 1;
 
         ctx.beginPath();
@@ -137,7 +137,7 @@ export const HeroBackground = () => {
             mouseInfluence={0}
             parallax={0}
             noise={1}
-            colors={["#ff6f00"]}
+            colors={["#2FFF00"]}
           />
         </div>
       </div>
@@ -188,8 +188,8 @@ export const HeroBackground = () => {
             0deg,
             transparent,
             transparent 2px,
-            rgba(255, 111, 0, 0.06) 2px,
-            rgba(255, 111, 0, 0.06) 4px
+            rgba(47, 255, 0, 0.06) 2px,
+            rgba(47, 255, 0, 0.06) 4px
           )`,
         }}
       />

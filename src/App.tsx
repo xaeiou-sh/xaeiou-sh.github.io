@@ -5,7 +5,8 @@ import { CursorOverlay } from "@/components/CursorOverlay";
 import { Button } from "@/components/ui/button";
 import TextType from "@/components/TextType";
 import CardSwap, { Card } from "@/components/CardSwap";
-import { ArrowRight, Code2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { GiCrystalBall } from "react-icons/gi";
 
 type ConnectionType =
   | 'local'
@@ -224,9 +225,9 @@ export default function App() {
               >
                 <Button
                   size="xl"
-                  className="group bg-flame text-void glow-flame transition-all duration-300 hover:glow-flame-intense font-cartridge"
+                  className="group bg-flame text-void glow-flame transition-all duration-300 hover:glow-flame-intense font-mono"
                 >
-                  <Code2 className="h-5 w-5" />
+                  <GiCrystalBall className="h-8 w-8" />
                   join the waitlist
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>

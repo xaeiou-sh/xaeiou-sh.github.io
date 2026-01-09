@@ -8,7 +8,7 @@ interface CursorConfig {
 }
 
 // Cursor colors
-const CURSOR_COLORS = ['#0066FF', '#5D00FF', '#FF6F00', '#FFD700'] // blue, phantom, flame, yellow
+const CURSOR_COLORS = ['#0066FF', '#5D00FF', '#2FFF00', '#FFD700'] // blue, phantom, neon, yellow
 
 // Get cursor configs for the hero section
 function getHeroCursorConfigs(containerWidth: number, containerHeight: number): CursorConfig[] {

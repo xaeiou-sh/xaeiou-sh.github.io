@@ -26,7 +26,7 @@
   --void: #000000;
   --mist: #DDDFDF;
   --neon: #2FFF00;
-  --flame: #FF6F00;
+  --flame: #2FFF00;
   --phantom: #5D00FF;
   --pure: #FFFFFF;
 
@@ -49,7 +49,7 @@
 
   /* ─── RGB Values for Glows ─── */
   --neon-rgb: 47, 255, 0;
-  --flame-rgb: 255, 111, 0;
+  --flame-rgb: 47, 255, 0;
   --phantom-rgb: 93, 0, 255;
   --pure-rgb: 255, 255, 255;
 
