@@ -3,13 +3,14 @@ import { Navigation } from "@/components/navigation";
 import { HeroBackground } from "@/components/HeroBackground";
 import { CursorOverlay } from "@/components/CursorOverlay";
 import { Button } from "@/components/ui/button";
-import { TypewriterEffect } from "@/components/ui/typewriter-effect";
+import TextType from "@/components/TextType";
 import CardSwap, { Card } from "@/components/CardSwap";
 import { ArrowRight, Code2 } from "lucide-react";
 
 type ConnectionType =
   | 'local'
   | { tailscale: string } // machine name over tailscale
+  | { cloudflare: string } // cloudflare workers
   | string; // region names like "us-west-2"
 
 interface AgentCardProps {
@@ -33,6 +34,15 @@ const ConnectionBadge = ({ connection }: { connection?: ConnectionType }) => {
     );
   }
 
+  if (typeof connection === 'object' && 'cloudflare' in connection) {
+    return (
+      <div className="flex items-center gap-1.5 text-xs text-zinc-500">
+        <img src="/logos/cloudflare.svg" alt="Cloudflare" className="h-3 w-auto" />
+        <span>running on worker</span>
+      </div>
+    );
+  }
+
   return (
     <div className="text-xs text-zinc-500">
       {connection}
@@ -42,15 +52,15 @@ const ConnectionBadge = ({ connection }: { connection?: ConnectionType }) => {
 
 const ClaudeCard = forwardRef<HTMLDivElement, AgentCardProps>(
   ({ name, activity, connection, style, onClick }, ref) => (
-    <Card ref={ref} className="flex flex-col justify-between p-6" style={style} onClick={onClick}>
-      <pre className="font-mono text-base leading-none text-flame text-glow-flame">{` ▐▛███▜▌
+    <Card ref={ref} className="flex flex-col gap-4 p-6" style={style} onClick={onClick}>
+      <pre className="font-mono text-lg leading-none text-flame text-glow-flame">{` ▐▛███▜▌
 ▝▜█████▛▘
   ▘▘ ▝▝`}</pre>
       <div>
-        <div className="font-mono text-lg text-flame">{name}</div>
+        <div className="font-mono text-3xl text-flame">{name}</div>
         <ConnectionBadge connection={connection} />
-        <div className="mt-1 flex items-center gap-2 text-sm text-pure">
-          <div className="h-2 w-2 animate-pulse rounded-full bg-flame"></div>
+        <div className="mt-2 flex items-center gap-2 text-lg text-pure">
+          <div className="h-3 w-3 animate-pulse rounded-full bg-flame"></div>
           {activity}
         </div>
       </div>
@@ -145,6 +155,22 @@ const DeepSeekCard = forwardRef<HTMLDivElement, AgentCardProps>(
   )
 );
 
+const CloudflareCard = forwardRef<HTMLDivElement, AgentCardProps>(
+  ({ name, activity, connection, style, onClick }, ref) => (
+    <Card ref={ref} className="flex flex-col justify-between p-4" style={style} onClick={onClick}>
+      <img src="/logos/cloudflare.svg" alt="Cloudflare" className="h-12 w-auto object-contain self-start" />
+      <div>
+        <div className="font-mono text-lg text-[#F6821F]">{name}</div>
+        <ConnectionBadge connection={connection} />
+        <div className="mt-1 flex items-center gap-2 text-sm text-pure">
+          <div className="h-2 w-2 animate-pulse rounded-full bg-[#F6821F]"></div>
+          {activity}
+        </div>
+      </div>
+    </Card>
+  )
+);
+
 export default function App() {
   return (
     <div className="min-h-screen bg-void">
@@ -163,31 +189,30 @@ export default function App() {
             {/* Main Heading */}
             <h1 className="mb-8 min-h-[4.5rem] text-3xl font-bold tracking-tight text-pure sm:min-h-[3.5rem] sm:text-4xl lg:min-h-[4rem] lg:text-5xl">
               Turn{" "}
-              <span className="text-neon text-glow-neon">
-                collaborative design sessions
-              </span>{" "}
+              <span className="text-flame text-glow-flame">
+                claude code
+              </span>{" "}<br/>
               into{" "}
-              <span className="text-neon">
-                <TypewriterEffect
-                  words={[
-                    "written code",
-                    "production apps",
-                    "real software",
-                    "working systems",
-                  ]}
-                  className="inline-block"
-                />
-              </span>
+              <TextType
+                text={["shared context", "collaboration sessions", "team infrastructure", "remote workflows"]}
+                className="text-flame"
+                showCursor={true}
+                cursorCharacter="|"
+                cursorClassName="text-flame"
+                typingSpeed={90}
+                deletingSpeed={40}
+                pauseDuration={2000}
+                loop={true}
+              />
             </h1>
 
             {/* Description */}
             <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-mist sm:text-xl">
-              <span className="font-cartridge text-2xl text-neon text-glow-neon sm:text-3xl">
+              <span className=" text-flame text-glow-flame ">
                 Seance
               </span>{" "}
-              is an agentic coding tool that turns your collaborative software
-              design sessions into{" "}
-              <span className="text-pure">written code</span>.
+              is a meta harness that makes your claude sessions feel like magic.<br/>{" "} 
+              <span className="text-pure">Its like spooky action, together.</span>
             </p>
 
             {/* CTA Button */}
@@ -199,20 +224,15 @@ export default function App() {
               >
                 <Button
                   size="xl"
-                  className="group bg-neon text-void glow-neon transition-all duration-300 hover:glow-neon-intense"
+                  className="group bg-flame text-void glow-flame transition-all duration-300 hover:glow-flame-intense font-cartridge"
                 >
                   <Code2 className="h-5 w-5" />
-                  Join Waitlist Now
+                  join the waitlist
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </a>
             </div>
 
-            {/* Feature Highlight */}
-            <div className="mt-16 flex items-center justify-center gap-2 text-sm text-mist">
-              <div className="h-2 w-2 animate-pulse-neon rounded-full bg-neon"></div>
-              <span>Powered by advanced AI agents</span>
-            </div>
           </div>
         </div>
       </section>
@@ -224,15 +244,13 @@ export default function App() {
             {/* Copy */}
             <div className="relative z-10 flex-1 text-center md:text-left">
               <h2 className="mb-6 text-2xl font-bold tracking-tight text-pure sm:text-3xl lg:text-4xl">
-                More Agents Than You Can{" "}
-                <span className="text-neon text-glow-neon">Track</span>
+                Orchestrate Agents{" "}
+                <span className="text-flame text-glow-flame">Everywhere</span>
               </h2>
               <p className="text-lg leading-relaxed text-mist">
-                While you design, a team of specialized agents works in
-                parallel—architects planning structure, implementers writing
-                code, reviewers catching issues.{" "}
-                <span className="font-cartridge text-xl text-neon">Seance</span>{" "}
-                orchestrates them all so you don't have to.
+                From your local machine to your kubernetes cluster, and even on the edge. Create, manage, and operate agents on any system with your team.{" "}
+                <span className="text-xl text-flame">Seance</span>{" "}
+                networks them all so you don't have to.
               </p>
             </div>
 
@@ -241,7 +259,7 @@ export default function App() {
               <CardSwap
                 cardDistance={50}
                 verticalDistance={50}
-                delay={3000}
+                delay={5000}
                 pauseOnHover={true}
                 width={400}
                 height={250}
@@ -257,6 +275,8 @@ export default function App() {
                 <ClaudeCard name="Sentinel" activity="Checking for vulnerabilities..." connection="us-east-1" />
                 {/* <GLMCard name="Nexus" activity="Coordinating agent tasks..." connection={{ tailscale: "luna" }} /> */}
                 <ClaudeCard name="Nexus" activity="Coordinating agent tasks..." connection={{ tailscale: "luna" }} />
+                <ClaudeCard name="Trigger" activity="Handling triggered actions..." connection={{ cloudflare: "dispatch" }} />
+                <ClaudeCard name="Specter" activity="Categorizing malware samples..." connection={{ cloudflare: "orchestrate" }} />
               </CardSwap>
             </div>
           </div>
@@ -266,14 +286,14 @@ export default function App() {
       {/* Screenshots Section */}
         <div className="mx-auto max-w-4xl px-4 pb-24 sm:px-6">
           <h2 className="mb-12 text-center text-2xl font-bold tracking-tight text-pure sm:text-3xl">
-            See It In <span className="text-neon text-glow-neon">Action</span>
+            See It In <span className="text-flame text-glow-flame">Action</span>
           </h2>
 
           <div className="space-y-24">
             {/* Whiteboards - Image left, copy right */}
             <div className="flex flex-col items-center gap-8 md:flex-row">
               <div className="flex-1">
-                <div className="overflow-hidden rounded-lg border-4 border-neon border-glow-neon">
+                <div className="overflow-hidden rounded-lg border-4 border-flame border-glow-flame">
                   <img
                     src="/screenshots/whiteboards.jpeg"
                     alt="Whiteboards"
