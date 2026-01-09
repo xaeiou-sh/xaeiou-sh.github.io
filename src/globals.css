@@ -153,6 +153,10 @@ body {
     border-color: var(--phantom);
     box-shadow: inset 0 0 20px rgba(var(--phantom-rgb), 0.1), var(--glow-sm) rgba(var(--phantom-rgb), 0.3);
   }
+  .border-glow-flame {
+    border-color: var(--flame);
+    box-shadow: inset 0 0 20px rgba(var(--flame-rgb), 0.1), var(--glow-sm) rgba(var(--flame-rgb), 0.3);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════

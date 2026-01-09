@@ -99,6 +99,7 @@ export function CursorOverlay() {
     >
       <Tldraw
         hideUi
+        licenseKey='tldraw-2026-04-17/WyJJRWtfa0dISCIsWyIqIl0sMTYsIjIwMjYtMDQtMTciXQ.j8grHi4C1XmlidMZWLONW55aQNBjjH6IhdmzAfAy0HgHjuoFKNgOinZHmeAS11QwJrkCn4ffZAOAyjM7sISwSA'
         onMount={(editor) => {
           editorRef.current = editor
 
