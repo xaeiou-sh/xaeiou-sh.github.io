@@ -10,8 +10,20 @@ import { ClaudeCard } from "@/components/AgentCards";
 import { downloadButtonStyle, waitlistButtonStyle } from "@/components/buttons/ButtonStyles";
 import { ArrowRight, Download } from "lucide-react";
 import { GiCrystalBall } from "react-icons/gi";
+import { posthog } from "@/lib/posthog";
 
 export default function Home() {
+  const handleWaitlistClick = () => {
+    posthog.capture('join_waitlist_clicked', {
+      location: 'hero_section',
+    });
+  };
+
+  const handleHeroDownloadClick = () => {
+    posthog.capture('download_hero_clicked', {
+      location: 'hero_section',
+    });
+  };
   return (
     <div className="min-h-screen bg-void">
       {/* Navigation */}
@@ -61,6 +73,7 @@ export default function Home() {
                 href="https://forms.gle/6Br64PFmTZSD4qjd9"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleWaitlistClick}
               >
                 <Button
                   size="xl"
@@ -71,7 +84,7 @@ export default function Home() {
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </a>
-              <Link to="/download">
+              <Link to="/download" onClick={handleHeroDownloadClick}>
                 <Button
                   size="xl"
                   className={clsx(downloadButtonStyle)}
