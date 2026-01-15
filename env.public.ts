@@ -1,4 +1,4 @@
-/**
+/*
  * Public Environment Configuration
  *
  * These values are safe to commit to version control as they are

@@ -10,6 +10,9 @@ export const initPostHog = () => {
         person_profiles: 'identified_only',
         capture_pageview: false, // We'll handle pageviews manually with React Router
         capture_pageleave: true,
+        defaults: '2025-05-24',
+        capture_exceptions: true, // Enable capturing exceptions via Error Tracking
+        debug: import.meta.env.MODE === 'development',
       });
     } else {
       console.warn('PostHog API key not configured. Analytics will not be tracked.');
