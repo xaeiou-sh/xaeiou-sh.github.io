@@ -5,6 +5,7 @@ import { CursorOverlay } from "@/components/CursorOverlay";
 import { Button } from "@/components/ui/button";
 import { Download as DownloadIcon } from "lucide-react";
 import { FaApple, FaLinux, FaWindows } from "react-icons/fa";
+import { posthog } from "@/lib/posthog";
 
 type OS = "mac" | "linux" | "windows" | "unknown";
 
@@ -36,14 +37,28 @@ export default function Download() {
 
     // Auto-download for Mac users
     if (detectedOS === "mac") {
+      posthog.capture('download_started', {
+        method: 'auto',
+        os: 'mac',
+      });
       setDownloading(true);
       window.location.href = DOWNLOAD_URL;
     }
   }, []);
 
   const handleManualDownload = () => {
+    posthog.capture('download_started', {
+      method: 'manual',
+      os: 'mac',
+    });
     setDownloading(true);
     window.location.href = DOWNLOAD_URL;
+  };
+
+  const handleWebAppClick = () => {
+    posthog.capture('web_app_redirect_clicked', {
+      os: os,
+    });
   };
 
   return (
@@ -95,6 +110,7 @@ export default function Download() {
                     href="https://app.seance.dev"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={handleWebAppClick}
                   >
                     <Button
                       size="xl"
