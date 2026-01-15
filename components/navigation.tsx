@@ -1,4 +1,8 @@
+import { Link } from "react-router-dom";
+import { clsx } from "clsx";
+import { Download } from "lucide-react";
 import { Button } from "./ui/button";
+import { downloadButtonStyle, getStartedButtonStyle } from "@/components/buttons/ButtonStyles";
 
 export const Navigation = () => {
   return (
@@ -17,7 +21,7 @@ export const Navigation = () => {
             href="https://forms.gle/6Br64PFmTZSD4qjd9"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex"
+            className="hidden lg:inline-flex"
           >
             <Button
               variant="ghost"
@@ -31,10 +35,16 @@ export const Navigation = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button className="bg-flame text-void glow-flame transition-all duration-300 hover:glow-flame-intense">
+            <Button className={clsx(getStartedButtonStyle)}>
               Get Started
             </Button>
           </a>
+          <Link to="/download" className="hidden sm:inline-flex">
+            <Button className={clsx(downloadButtonStyle)}>
+              <Download className="h-4 w-4" />
+              Download
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
