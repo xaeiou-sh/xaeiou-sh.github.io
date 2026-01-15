@@ -3,20 +3,20 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neon disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-flame disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "bg-neon text-void hover:glow-neon",
+          "bg-flame text-void hover:glow-flame",
         destructive:
           "bg-flame text-void hover:glow-flame",
         outline:
-          "border border-border bg-transparent text-mist hover:bg-secondary hover:text-pure hover:border-neon",
+          "border border-border bg-transparent text-mist hover:bg-secondary hover:text-pure hover:border-flame",
         secondary:
           "bg-secondary text-mist hover:bg-muted hover:text-pure",
-        ghost: "text-mist hover:bg-secondary hover:text-neon",
-        link: "text-neon underline-offset-4 hover:underline hover:text-glow-neon",
+        ghost: "text-mist hover:bg-secondary hover:text-flame",
+        link: "text-flame underline-offset-4 hover:underline hover:text-glow-flame",
         phantom: "bg-phantom text-pure hover:glow-phantom",
       },
       size: {
