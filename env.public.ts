@@ -9,5 +9,5 @@
 
 export const ENV = {
   POSTHOG_KEY: 'phc_XdFjlV2BPaqX9xf0OoYcB6htSR6hkwPghHXjr00BVgg',
-  POSTHOG_HOST: 'https://us.i.posthog.com',
+  POSTHOG_HOST: 'https://backend.seance.dev/beholder',
 } as const;

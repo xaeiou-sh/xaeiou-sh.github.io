@@ -7,6 +7,7 @@ export const initPostHog = () => {
     if (ENV.POSTHOG_KEY) {
       posthog.init(ENV.POSTHOG_KEY, {
         api_host: ENV.POSTHOG_HOST,
+        ui_host: 'https://us.posthog.com', // Points to actual PostHog UI for toolbar/features
         person_profiles: 'identified_only',
         capture_pageview: false, // We'll handle pageviews manually with React Router
         capture_pageleave: true,
